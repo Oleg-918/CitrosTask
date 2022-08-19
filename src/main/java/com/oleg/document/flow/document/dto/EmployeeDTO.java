@@ -11,4 +11,6 @@ public class EmployeeDTO {
     private String patronymic;
     private String post;
 
+    // принимать и маппить отделы(Division)
+
 }

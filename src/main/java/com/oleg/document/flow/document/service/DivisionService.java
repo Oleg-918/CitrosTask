@@ -4,13 +4,10 @@ import com.oleg.document.flow.document.dto.DivisionDTO;
 import com.oleg.document.flow.document.model.Division;
 import com.oleg.document.flow.document.repository.DivisionRepository;
 import com.oleg.document.flow.document.util.DivisionMapper;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.awt.print.Pageable;
 import java.util.List;
 
 @Service

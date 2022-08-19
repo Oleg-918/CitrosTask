@@ -6,28 +6,26 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import javax.transaction.Transactional;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 @Transactional
 @RequiredArgsConstructor
 public class StatusService {
-    private Map<String, List<String>> availableAction = new HashMap<>();
+    private Map<String, Set<String>> availableAction = new HashMap<>();
 
     @PostConstruct
     public void init() {
-        availableAction.put("Start", List.of("Preparation"));
-        availableAction.put("Preparation", List.of("Execution"));
-        availableAction.put("Execution", List.of("Control"));
-        availableAction.put("Control", List.of("Reception", "Modification"));
-        availableAction.put("Modification", List.of("Execution"));
-        availableAction.put("Reception", List.of("Finish"));
+        availableAction.put("Start", Set.of("Preparation"));
+        availableAction.put("Preparation", Set.of("Execution"));
+        availableAction.put("Execution", Set.of("Control"));
+        availableAction.put("Control", Set.of("Reception", "Modification"));
+        availableAction.put("Modification", Set.of("Execution"));
+        availableAction.put("Reception", Set.of("Finish"));
     }
 
-    public List<String> getAvailableStatus(StatusDTO statusDTO) {
-        return availableAction.get(statusDTO.getStatus());
+    public Set<String> getAvailableStatus(String status) {
+        return availableAction.get(status);
     }
 
 }

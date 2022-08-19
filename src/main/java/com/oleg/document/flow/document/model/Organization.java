@@ -41,5 +41,5 @@ public class Organization {
     private Set<Division> divisionSet;
 
     @OneToMany(mappedBy="organization")
-    private Set<Employee> employeeSet;
+    private Set<Employee> employeeSet;//нахуя?
 }

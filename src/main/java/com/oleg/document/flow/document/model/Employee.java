@@ -46,11 +46,11 @@ public class Employee {
     private List<Order> orders;
 
     @ManyToOne
-    @JoinColumn(name="employee_id", nullable=false)
+    @JoinColumn(name="employee_id")// назвать столбец правильно
     private Division division;
 
     @ManyToOne
-    @JoinColumn(name="employee_id_organization", nullable=false)
+    @JoinColumn(name="employee_id_organization")
     private Organization organization;
 
 }

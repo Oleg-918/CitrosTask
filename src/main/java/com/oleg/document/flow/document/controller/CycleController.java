@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @AllArgsConstructor
@@ -16,8 +17,8 @@ public class CycleController {
     private final OrderService orderService;
 
     @GetMapping("orders/status")
-    public List<String> getStatus(@RequestBody StatusDTO statusDTO) {
-        return statusService.getAvailableStatus(statusDTO);
+    public Set<String> getStatus(@RequestBody StatusDTO statusDTO) {
+        return statusService.getAvailableStatus(statusDTO.getStatus());
     }
 
     @PutMapping("orders/{id}/status")

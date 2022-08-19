@@ -22,21 +22,23 @@ public class OrderController {
         return orderService.createNewOrder(orderDTO);
     }
 
+
     @DeleteMapping("/order/{id}")
     public void delete(@PathVariable("id") Integer id) {
+        log.info("Пользоватлеь был удалён!");
         orderService.deleteOrder(id);
     }
 
     @PutMapping("/order")
     public OrderDTO update(@RequestBody @Valid OrderDTO orderDTO) {
+        log.info("Пользоватлеь был обновлён!");
         return orderService.updateOrder(orderDTO);
     }
-
     @GetMapping("/order")
-    public List<Order> getAll(
-            @RequestParam(defaultValue = "0",name ="page") Integer page,
-            @RequestParam(defaultValue = "2",name ="size") Integer size
-    ) {
+    public List<OrderDTO> getAll(@RequestParam(defaultValue = "0", value = "page") Integer page,
+    @RequestParam(defaultValue = "2", value = "size") Integer size) {
+        log.info("Пользоватлеь был обновлён!");
         return orderService.getAllOrder(page, size);
     }
+
 }

@@ -32,7 +32,6 @@ public class Division {
     @Size(min = 2, max = 32, message = "Field must be between 2 and 32 characters long")
     private String director;
 
-
     //Связь между таблицами
     @ManyToOne
     @JoinColumn(name="division_id", nullable=false)
